@@ -3,7 +3,7 @@ const { argv } = require('yargs');
 
 const environment = argv.environment;
 const isProduction = environment === 'prod';
-const envPath = isProduction ? '.prod.env' : '.env';
+const envPath = isProduction ? '.env' : '.env';
 require('dotenv').config({ path: envPath });
 const env_vars = {
   production: isProduction,
