@@ -19,6 +19,10 @@ jobs:
     - run: npm install -g ts-node
     - run: npm install
     - run: CI=false npm run build
+      env:
+        AUTH_SERVER_URL: ${{secrets.AUTH_SERVER_URL}}
+        CHAT_SERVER_URL: ${{secrets.CHAT_SERVER_URL}}
+        CLOUD_BASE_URL: ${{secrets.CLOUD_BASE_URL}}
     - name: Google Cloud Storage Setup
       uses: google-github-actions/setup-gcloud@v0
       with:
