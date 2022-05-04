@@ -1,0 +1,83 @@
+:host {
+  margin-top: 40px;
+  background: #fff;
+  display: block;
+  padding: 0px 20px;
+  border-radius: 5px;
+  border: 0.5px solid lightgrey;
+  h1 {
+    color: darkslategrey;
+  }
+  form {
+    input {
+      padding: 8px;
+      font-size: 14px;
+      width: 60%;
+      border: 0.5px solid lightgrey;
+      margin-right: 15px;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 8px;
+      background-color: royalblue;
+      font-weight: bold;
+      width: 30%;
+      color: white;
+      border: none;
+      opacity: 0.9;
+      cursor: pointer;
+      border-radius: 5px;
+      &:disabled {
+        opacity: 0.8;
+        cursor: not-allowed;
+      }
+    }
+  }
+  table {
+    width: 100%;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    td {
+      width: 50%;
+      padding: 7px;
+      border: 0.5px solid lightgrey;
+      opacity: 0.8;
+    }
+    td:first-child {
+      color: darkslategrey;
+      opacity: 1;
+      font-weight: bold;
+    }
+  }
+  .file-import-container {
+    padding-bottom: 20px;
+    input {
+      border: none;
+    }
+  }
+  img {
+    width: 100px;
+  }
+  .uploading-files {
+    font-style: italic;
+    color: royalblue;
+  }
+  .error-message {
+    padding-top: 10px;
+    font-style: italic;
+    color: #ff0000c7;
+  }
+  .bar-container {
+    height: 8px;
+    border-radius: 3px;
+    margin-top: 10px;
+    background: #eae8e1;
+    overflow: hidden;
+  }
+  .bar {
+    width: 10%;
+    height: 8px;
+    background: #5478e4;
+  }
+}

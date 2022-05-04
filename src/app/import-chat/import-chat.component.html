@@ -1,0 +1,61 @@
+<h1>Get Org Details</h1>
+<form [formGroup]="orgDetailAuthKeyForm" (ngSubmit)="getOrgDetails()">
+  <input
+    id="auth-key"
+    placeholder="Enter Organization auth key"
+    type="text"
+    formControlName="authKey"
+  />
+  <button>Get Org Detail</button>
+</form>
+<div *ngIf="showErrorMessage.length > 0" class="error-message">
+  {{ showErrorMessage }}
+</div>
+<br />
+<br />
+<div *ngIf="orgDetails">
+  <table>
+    <tr>
+      <td>Org Name</td>
+      <td>{{ orgDetails.name }}</td>
+    </tr>
+    <tr>
+      <td>Public</td>
+      <td>{{ orgDetails.public }}</td>
+    </tr>
+    <tr>
+      <td>Domain</td>
+      <td>{{ orgDetails.domain }}</td>
+    </tr>
+  </table>
+</div>
+<div *ngIf="orgDetails" class="file-import-container">
+  <h1>Choose File to Import</h1>
+
+  <form [formGroup]="importChatForm" (ngSubmit)="startImport()">
+    <input type="file" name="chatFile" (change)="onFileSelect($event)" />
+    <button [disabled]="isFileProcessing">
+      {{ isFileProcessing ? "Processing File" : "Upload" }}
+    </button>
+  </form>
+  <img
+    *ngIf="isLoading || isFileProcessing"
+    src="https://thumbs.gfycat.com/PepperyMediumBrahmancow-size_restricted.gif"
+    alt=""
+  />
+  <div *ngIf="isFileProcessing" class="uploading-files">
+    Processing Files and Uploading images
+    <div class="bar-container">
+      <div class="bar" [style.width.%]="processingFileWidthPercent"></div>
+    </div>
+  </div>
+  <div *ngIf="isLoading" class="uploading-files">
+    Importing Messages
+    <div class="bar-container">
+      <div class="bar" [style.width.%]="messageImportWidthPercent"></div>
+    </div>
+  </div>
+  <div *ngIf="uploadCompletedMessage.length > 0" class="uploading-files">
+    Imported Successfully
+  </div>
+</div>
