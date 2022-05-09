@@ -167,12 +167,7 @@ export class ImportChatComponent implements OnInit {
                   id: message?.id,
                   createdAt: message.createdTime,
                 };
-                if (
-                  message?.text.length === 0 &&
-                  (message?.field5?.includes('jpg') ||
-                    message?.field5?.includes('image') ||
-                    message?.field5?.includes('png'))
-                ) {
+                if (message?.text.length === 0 && message?.field5) {
                   newMessageData.text = '';
                   if (message?.field5) {
                     newMessageData.text = 'Shared attachment from desktop.';
