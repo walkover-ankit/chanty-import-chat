@@ -1,12 +1,13 @@
 name: Chanty Deployment
 on:
   push:
-    branches: [main]
+    branches:
+    - dev
+    - main
 
 jobs: 
   build:
     runs-on: ubuntu-latest
-    environment: prod
     strategy:
       matrix:
         node-version: [16.x]
